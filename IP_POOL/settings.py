@@ -12,12 +12,13 @@ BOT_NAME = 'IP_POOL'
 SPIDER_MODULES = ['IP_POOL.spiders']
 NEWSPIDER_MODULE = 'IP_POOL.spiders'
 
+LOG_LEVEL = "ERROR"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'IP_POOL (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -62,9 +63,10 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'IP_POOL.pipelines.IpPoolPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'IP_POOL.pipelines.IpPoolPipeline': 300,
+   'IP_POOL.pipelines.MysqlPipeline': 301,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
