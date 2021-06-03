@@ -16,3 +16,10 @@ class IpPoolItem(scrapy.Item):
 class DuanziItem(scrapy.Item):
     title = scrapy.Field()
     content = scrapy.Field()
+
+
+
+class A4567kanItem(scrapy.Item):
+    title = scrapy.Field()
+    content = scrapy.Field()
+

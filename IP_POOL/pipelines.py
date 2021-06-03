@@ -28,7 +28,7 @@ class IpPoolPipeline:
 
 
 # 将数据存储到MySQL当中
-class MysqlPipeline():
+class MysqlPipeline:
     conn = None
 
     def open_spider(self, spider):

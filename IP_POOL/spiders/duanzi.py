@@ -12,7 +12,7 @@ class DuanziSpider(scrapy.Spider):
 
     def parse(self, response):
         duanzis = response.xpath("//div[@class='nr']/dl")
-
+        print(111,duanzis)
         for duanzi in duanzis:
             item = DuanziItem()
             item["title"] = duanzi.xpath("./span/dd/a/strong/text()").extract()[0]
