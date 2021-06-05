@@ -23,3 +23,12 @@ class A4567kanItem(scrapy.Item):
     title = scrapy.Field()
     content = scrapy.Field()
 
+class KuaidailiItem(scrapy.Item):
+    ip = scrapy.Field()
+    port = scrapy.Field()
+    type = scrapy.Field()
+    platform = scrapy.Field()
+
+
+
+
