@@ -17,7 +17,6 @@ class KuaidailiSpider(scrapy.Spider):
             item["port"] = ip.xpath("./td[2]/text()").get()
             item["type"] = ip.xpath("./td[4]/text()").get()
             item["platform"] = self.name
-
             yield item
 
 
