@@ -9,6 +9,7 @@ class KuaidailiSpider(scrapy.Spider):
     start_urls = ['https://www.kuaidaili.com/free/inha/1/']
 
     def parse(self, response):
+
         ips = response.xpath("//table[@class='table table-bordered table-striped']/tbody/tr")
         item = KuaidailiItem()
 
@@ -17,6 +18,7 @@ class KuaidailiSpider(scrapy.Spider):
             item["port"] = ip.xpath("./td[2]/text()").get()
             item["type"] = ip.xpath("./td[4]/text()").get()
             item["platform"] = self.name
+            print(item)
             yield item
 
 
