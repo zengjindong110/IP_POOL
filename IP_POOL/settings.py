@@ -11,8 +11,8 @@ BOT_NAME = 'IP_POOL'
 
 SPIDER_MODULES = ['IP_POOL.spiders']
 NEWSPIDER_MODULE = 'IP_POOL.spiders'
-
-LOG_LEVEL = "ERROR"
+IMAGES_STORE = "./img"
+LOG_LEVEL = "DEBUG"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36'
@@ -64,8 +64,10 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'IP_POOL.pipelines.IpPoolPipeline': 300,
-   'IP_POOL.pipelines.MysqlPipeline': 301,
+   'IP_POOL.pipelines.IpPoolPipeline': 301,
+   # 'IP_POOL.pipelines.MysqlPipeline': 302,
+   'IP_POOL.pipelines.ImagePipLine': 300,
+
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

@@ -17,6 +17,10 @@ class DuanziItem(scrapy.Item):
     title = scrapy.Field()
     content = scrapy.Field()
 
+class IvskyItem(scrapy.Item):
+    image_src = scrapy.Field()
+    image_name = scrapy.Field()
+
 
 
 class A4567kanItem(scrapy.Item):

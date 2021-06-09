@@ -9,13 +9,14 @@ import pymysql
 import scrapy
 from itemadapter import ItemAdapter
 
-
 from concurrent.futures import ThreadPoolExecutor
 import threading
 
+
 class IpPoolPipeline:
     pool = ThreadPoolExecutor(max_workers=2)
-    def check(self,ip,port):
+
+    def check(self, ip, port):
         import telnetlib
         try:
             telnetlib.Telnet(ip, port, timeout=2)
@@ -25,7 +26,28 @@ class IpPoolPipeline:
             print("代理ip无效！")
 
     def process_item(self, item, spider):
+        # print(item)
+        return item
 
+
+from scrapy.pipelines.images import ImagesPipeline
+import scrapy
+
+
+class ImagePipLine(ImagesPipeline):
+    def get_media_requests(self, item, info):
+        url = item["image_src"]
+        print(url)
+        yield scrapy.Request(url=url, meta={"item": item})
+
+    def file_path(self, request, response=None, info=None, *, item=None):
+        item = request.meta["item"]
+        filePath = item["image_name"]
+        print(filePath)
+        return filePath
+
+    def item_completed(self, results, item, info):
+        return item
 
 
 # 将数据存储到MySQL当中
