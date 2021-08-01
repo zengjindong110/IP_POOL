@@ -12,8 +12,8 @@ BOT_NAME = 'IP_POOL'
 SPIDER_MODULES = ['IP_POOL.spiders']
 NEWSPIDER_MODULE = 'IP_POOL.spiders'
 IMAGES_STORE = "./img"
-LOG_LEVEL = "DEBUG"
-
+LOG_LEVEL = "ERROR"
+MEDIA_ALLOW_REDIRECTS = True
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36'
 
@@ -21,7 +21,7 @@ USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-#CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = 100
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay

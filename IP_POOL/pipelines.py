@@ -14,16 +14,8 @@ import threading
 
 
 class IpPoolPipeline:
-    pool = ThreadPoolExecutor(max_workers=2)
 
-    def check(self, ip, port):
-        import telnetlib
-        try:
-            telnetlib.Telnet(ip, port, timeout=2)
 
-            ("代理ip有效！")
-        except:
-            print("代理ip无效！")
 
     def process_item(self, item, spider):
         # print(item)
@@ -57,6 +49,7 @@ class MysqlPipeline:
     def open_spider(self, spider):
         self.conn = pymysql.Connect(host="rm-wz9325c14dsxj3l0kko.mysql.rds.aliyuncs.com", port=3306, user="root",
                                     passwd="AZFZhh@H55XAuMu", db="project")
+
         print(self.conn)
 
     def process_item(self, item, spider):
